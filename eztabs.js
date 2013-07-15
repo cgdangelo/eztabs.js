@@ -6,7 +6,7 @@
     eztabs.find('[data-toggle]').click(function() {
       settings.beforeSwitch();
 
-      $(this).siblings('[data-toggle]').removeClass('active');
+      $(this).siblings('[data-toggle]').removeClass(settings.activeClass);
       $(this).toggleClass(settings.activeClass);
 
       var contentPane = $('[data-tab=' + this.getAttribute('data-toggle') + ']');
