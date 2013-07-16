@@ -1,12 +1,20 @@
 ;(function($) {
   $.fn.eztabs = function(options) {
     var settings = $.extend({}, $.fn.eztabs.defaults, options),
-        eztabs = $('[data-eztabs]');
+        eztabs = $('[data-eztabs]'),
+        switches = eztabs.find('[data-toggle]');
 
-    eztabs.find('[data-toggle]').click(function() {
+    switches.first().addClass(settings.activeClass);
+    switches.click(function(e) {
+      e.preventDefault();
+
+      if ($(this).hasClass(settings.activeClass) && !settings.collapseAll) {
+        return;
+      }
+
       settings.beforeSwitch();
 
-      $(this).siblings('[data-toggle]').removeClass(settings.activeClass);
+      switches.removeClass(settings.activeClass);
       $(this).toggleClass(settings.activeClass);
 
       var contentPane = $('[data-tab=' + this.getAttribute('data-toggle') + ']');
@@ -14,12 +22,14 @@
       contentPane.toggle();
 
       settings.afterSwitch();
+
       return this;
     });
   }
 
   $.fn.eztabs.defaults = {
     activeClass: 'active',
+    collapseAll: false,
     beforeSwitch: function() {},
     afterSwitch: function() {}
   }
