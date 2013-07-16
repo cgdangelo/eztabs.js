@@ -1,8 +1,8 @@
 ;(function($) {
   $.fn.eztabs = function(options) {
-    var settings = $.extend({}, $.fn.eztabs.defaults, options);
+    var settings = $.extend({}, $.fn.eztabs.defaults, options),
+        eztabs = $('[data-eztabs]');
 
-    var eztabs = $('[data-eztabs]');
     eztabs.find('[data-toggle]').click(function() {
       settings.beforeSwitch();
 
