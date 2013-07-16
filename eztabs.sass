@@ -1,0 +1,44 @@
+@import compass/utilities
+@import compass/css3/transition
+@import compass/css3/border-radius
+
+$toggleBackground: #ccc
+$toggleBackgroundHover: darken($toggleBackground, 10%)
+$toggleBackgroundActive: darken($toggleBackground, 30%)
+$toggleBackgroundCurrent: darken($toggleBackground, 60%)
+
+$toggleColor: #000
+$toggleColorCurrent: #fff
+
+$tabBackground: lighten($toggleBackground, 10%)
+
+[data-eztabs]
+  [data-toggle]
+    +inline-block
+    +transition-property(background-color, color)
+    +transition-duration(.15s)
+    +transition-timing-function(ease-in)
+    +border-top-radius
+
+    padding: 0.35em 1em
+    background: $toggleBackground
+    color: $toggleColor
+    text-decoration: none
+
+    &:hover
+      background: $toggleBackgroundHover
+
+    &:active
+      background: $toggleBackgroundActive
+
+    &.active
+      background: $toggleBackgroundCurrent
+      color: $toggleColorCurrent
+
+  [data-tab]
+    background: $tabBackground
+    padding: 1em
+    display: none
+
+    &:first-of-type
+      display: block
