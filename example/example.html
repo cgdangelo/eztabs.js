@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="stylesheets/eztabs.css"/>
+  </head>
+
+  <body>
+    <div data-eztabs>
+      <a href="#" data-toggle="panel1">Panel 1</a>
+      <a href="#" data-toggle="panel2">Panel 2</a>
+      <a href="#" data-toggle="panel3">Panel 3</a>
+      <a href="#" data-toggle="panel4">Panel 4</a>
+
+      <section data-tab="panel1">
+        Panel 1
+      </section>
+
+      <section data-tab="panel2">
+        Panel 2
+      </section>
+
+      <section data-tab="panel3">
+        Panel 3
+      </section>
+
+      <section data-tab="panel4">
+        Panel 4
+      </section>
+    </div>
+
+    <script src="jquery.js"></script>
+    <script src="../eztabs.js"></script>
+    <script>
+      $(document).eztabs();
+    </script>
+  </body>
+</html>
